@@ -1,0 +1,26 @@
+from models import Expense
+import random
+from datetime import datetime
+
+def get_user_expenses():
+    expenses = []
+    while True:
+        try:
+            amount = float(input("Harcama miktarı girin (çıkmak için 0): "))
+            if amount == 0:
+                break
+            category = input("Kategori: ")
+            expenses.append(Expense(amount, category))
+        except ValueError:
+            print("Lütfen geçerli bir sayı girin.")
+    return expenses
+
+def generate_random_notification():
+    messages = [
+        "Bütçe limitiniz aşıldı!",
+        "Yeni harcama kaydedildi.",
+        "Finansal durumunuzu kontrol edin."
+    
+    ]
+    return f"[{datetime.now().strftime('%Y-%m-%d %H:%M')}] {random.choice(messages)}"
+

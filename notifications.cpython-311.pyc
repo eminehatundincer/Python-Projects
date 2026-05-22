@@ -1,0 +1,17 @@
+import random
+from datetime import datetime
+
+def generate_message():
+    messages = [
+        "Hoş geldiniz!",
+        "Yeni kampanya başladı.",
+        "Şifrenizi güncellemeyi unutmayın.",
+        "Bildirim testi başarılı."
+    ]
+    return random.choice(messages)
+
+def generate_notification_data():
+    """Mesaj + oluşturulma zamanı döndürür"""
+    message = generate_message()
+    created_at = datetime.now()
+    return message, created_at
